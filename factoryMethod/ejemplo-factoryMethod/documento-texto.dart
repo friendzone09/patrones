@@ -5,6 +5,6 @@ class DocumentoTexto implements Documento{
   @override
   String generar(List<int> calificaciones){
     // Debe de generarse el documento de word
-    return('Calificaciones: ${calificaciones.join(',')}');
+    return('Calificaciones: ${calificaciones.join(',')}, en formato de word');
   }
 }
