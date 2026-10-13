@@ -1,10 +1,12 @@
 import 'servicio-pago.dart';
+import 'terminal-adaptador.dart';
 import 'terminal-externa.dart';
 import 'tienda.dart';
 
 void main(){
-  final tienda = Tienda(ServicioPago(), TerminalExterna());
+  final tiendaConServicio = Tienda(ServicioPago());
+  final tiendaConTerminal = Tienda(TerminalAdaptador(TerminalExterna()));
 
-  tienda.finalizaCompra(100, 'servicioPago');
-  tienda.finalizaCompra(100, 'terminalExterna');
+  tiendaConServicio.finalizaCompra(158.50); // Pesos
+  tiendaConTerminal.finalizaCompra(250.50); // Dolabres
 }
