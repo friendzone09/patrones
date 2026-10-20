@@ -1,5 +1,10 @@
-class Notificador {
-  void notificar(String tarea){
-    print("Notificador: se publico $tarea");
+import 'observador.dart';
+
+// Observador
+
+class Notificador implements Observador {
+  @override
+  void actualizar(String tarea) {
+    print('Notificacion: se publico $tarea');
   }
 }
