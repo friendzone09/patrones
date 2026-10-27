@@ -1,22 +1,16 @@
+import 'cine_facade.dart';
 import 'proyector.dart';
 import 'reproductor.dart';
 import 'sistema_audio.dart';
 
 void main(){
-  final proyector = Proyector();
-  final audio = SistemaAudio();
-  final reproductor = Reproductor();
-  // Todas las tareas tienen en comun lograr un objetivo
-  // Sin facade se llaman a clases diferentes y funciones diferentes
+  final cine = CineFacade(Proyector(), SistemaAudio(), Reproductor());
 
-  // Reproducir pelicula
-  proyector.endender();
-  audio.endender();
-  audio.ajustarVolumen(25);
-  reproductor.reproducir('Cuties');
+  cine.verPelicula('narcos gay', 200);
+  cine.terminarFuncion();
 
-  //Terminar la funcion
-  reproductor.detener();
-  audio.apagar();
-  proyector.apagar();
+  // La fachada coordina los pasos.
+  // El usuario de la fachada solo conoce los metodos basicos
+  // El usuario no necesita conocer los detalles
+  // El procedimiento se concentra en una clase
 }
